@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.NeedItUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Utils script include for the NeedIt application</description>
+        <name>NeedItUtils</name>
+        <script><![CDATA[var NeedItUtils = Class.create();
+NeedItUtils.prototype = {
+    initialize: function() {},
+
+    //Purpose :- To check if the date is in the past
+    //Input :- Value from DateTime field
+    //Output :- Boolean
+    isPastDate: function(strDate) {
+        //Create DateTime objects for current date and the date passed to Script include
+        var rightNow = new GlideDateTime();
+        var testDate = new GlideDateTime(strDate);
+
+        //if the tesdtDate is befor current date pass true else return false
+        if (testDate.before(rightNow)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    //Purpose :- To check if the date is of today
+    //Input :- Value from DateTime field
+    //Output :- Boolean
+
+    isDateToday: function(strDate) {
+        //Create DateTime objects for current date and the date passed to Script include
+        var rightNow = new GlideDateTime();
+        var whenNeededDate = new GlideDateTime(strDate);
+
+        //Get the date part of the DateTime object
+        var today = rightNow.getLocalDate();
+        var testDate = whenNeededDate.getLocalDate();
+
+        //if the tesdtDate is of today
+        if (testDate.compareTo(today) == 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+
+    },
+
+    type: 'NeedItUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-29 12:03:44</sys_created_on>
+        <sys_id>43adc65947880a501472d437536d43c8</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>NeedItUtils</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_43adc65947880a501472d437536d43c8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-29 12:19:08</sys_updated_on>
+    </sys_script_include>
+</record_update>
